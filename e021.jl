@@ -25,8 +25,9 @@ for k in 1:10000-1
 
   num_1 = proper_divisors(k)
   num_2 = proper_divisors(num_1)
+  both_are_less = k < 10000 && num_1 < 10000
 
-  if k == num_2 && (k < 10000-1 || num_1 < 10000-1)
+  if k == num_2 && both_are_less && k != num_1  # d(a) = b, d(b) = a, a != b
 
     global sum_of_amicable_numbers += k + num_1
 
@@ -38,11 +39,11 @@ for k in 1:10000-1
     # one number unaccounted for
     if k in vector || num_1 in vector
 
-      if k in vector && k < 10000 - 1
+      if k in vector
         push!(vector, num_1)
       end
 
-      if num_1 in vector && num_1 < 10000 - 1
+      if num_1 in vector
         push!(vector, k)
       end
 
@@ -51,18 +52,14 @@ for k in 1:10000-1
     end
 
     # neither number accounted for
-    if num_1 < 10000 - 1
-      push!(vector, num_1)
-    end
+    push!(vector, num_1)
 
     # incase the numbers are equal
     if k == num_1
       continue
     end
 
-    if k < 10000 - 1
-      push!(vector, k)
-    end
+    push!(vector, k)
 
   end
 
