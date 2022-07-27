@@ -7,12 +7,12 @@ public class e032 {
         List<Integer> products = new ArrayList<>();
         //check_pandigital(45, 46);
         double sum = 0;
-        Set<Double> product_set = new HashSet<Double>();
+        Set<Long> product_set = new HashSet<Long>();
 
-        for (long multiplicand = 1; multiplicand < 999999; multiplicand ++) {
-            for (long multiplier = 1; multiplier < 999999; multiplier ++) {
-                double product = check_pandigital(multiplicand, multiplier);
-                if (product_set.contains(product) == false) {
+        for (long multiplicand = 1; multiplicand <= 1000000; multiplicand ++) {
+            for (long multiplier = 1; multiplier <= 1000000; multiplier ++) {
+                if (!product_set.contains((multiplicand * multiplier))) {
+                    long product = check_pandigital(multiplicand, multiplier);
                     sum += product;
                     product_set.add(product);
                 }
