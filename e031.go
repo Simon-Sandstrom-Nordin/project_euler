@@ -13,7 +13,7 @@ func main() {
 					for e := 0; e <= 10; e++ { // 20 pence
 						for f := 0; f <= 4; f++ { // 50 pence
 							for g := 0; g <= 2; g++ { // 1 pound
-								for h := 0; h <= 1; h++ {
+								for h := 0; h <= 1; h++ {	// 2 pound
 									sum := a*1 + b*2 + c*5 + d*10 + e*20 + f*50 + g*100 + h*200
 									if sum == 200 {
 										counter += 1

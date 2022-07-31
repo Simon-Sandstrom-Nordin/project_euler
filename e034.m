@@ -18,4 +18,3 @@ for k=3:1000000
 end
 
 disp(list)
-% answer: 4058 + 145 = 40730
