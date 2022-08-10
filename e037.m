@@ -16,6 +16,9 @@ while primes_found < 11 % didn't stop before since it was on <=
     end
     counter = counter + 1;
 end
+disp("Sum of all eleven both left- and right-truncatable primes is:")
+sum(list_of_truncatable_primes)  
+
 % doesn't end for some reason... oh well -\_(^-)_/-
 % sum of that list is 748317
 % insight: first of all, they're finite.
