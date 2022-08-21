@@ -1,6 +1,10 @@
 % öÖö
 % Sub-string divisibility
 
+% This... I think 40 days was the estimate for the time this
+% would take...? ehm... I got to like 20-ish percent
+% then my computer shut off. I'll move on <3.
+
 % note to self: probably works but is depressingly slow... :(
 % ... I'll leave this going for a few moments / long moments
 
