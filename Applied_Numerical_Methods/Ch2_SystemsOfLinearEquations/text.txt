@@ -1,0 +1,24 @@
+Cases for systems:
+    1. Non-singular, M = N. usually perfect.
+% equal number of row elements in matrix's column vectors as in image
+% vector.
+
+% solving the nonsingular case is ez in matlab. Ax = b <=> x = A^(-1)b
+A = [1,2;3,4], b = [1,2], x = [y,z]
+x = A \ b = A^(-1) * b = inv(A) * b = [0; .5]
+
+    2. Underdetermined, M < N. Minimum norm solution. (?)
+% underdetermined system, ex. [1,2,3; 4,5,6][x;y] = [1;2] ?
+% more rows in matrix operating on vector than in the image of the vector.
+
+    3.  Overdetermined, M > N. Least squares solution.
+% overdetermined system, ex. [1,2; 3,4; 5,6][x;y] = [1;2;3;4]
+% fewer rows -II-.
+% coefficient matrix: matrix operating on the vector.
+
+% solved in some sense by minimizing the norm of the residue vector.
+% Solved ez in MatLab like first one, since "\" operator recognizes the
+% overdeterminism and I think does the normal (not that (norm) normal)
+% thing of taking Ax = b <=> x = (A'A)^(-1)A'b
+
+
