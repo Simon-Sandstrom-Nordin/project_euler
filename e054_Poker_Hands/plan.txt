@@ -1,0 +1,85 @@
+Ok, so this poker program is the first program of
+Project Euler that's been too complex to do in one
+script, in my opinion. So I think it's best to
+subdivide this problem.
+
+Assumptions from the instruction:
+- There's a clear winner in each case.
+- If both players have the same ranked hand, the rank
+  made up of the highest value wins. A pair of queens
+  beats a pair of twos, for example. If those tie, say
+  both have a pair of tens, then the highest card in
+  each hand are compared. If those tie, then the next
+  highest card are compared and so on. Ex:
+  Q Q 5 4 3 vs. Q Q 3 2 2, p1 wins as 5 > 3 and 5 > 2.
+- All hands are legal. 例えば,　hand of five aces　がない。
+
+Main program
+
+    main.m
+    My main program, which calls the functions in the
+    function files of this directory (katalog på svenska).
+    Input is a string of values from the text file, and it
+    will contain a while loop iterating until the string
+    is empty. It'll keep a counter of player one wins, and
+    at the end it will display the counter with some text.
+
+Function files
+
+    Helper functions
+    
+        cards.m
+        Breaks down 20 character string into a (cell?) array
+        of five cards in character format, eg.
+        cards = {'2h', '3h', '4s', '7d', '9c'}.
+        Then I can access the cards by eg. char(a(1)) => '2h'.
+
+        values.m
+        Takes the character array and returns a vector of just
+        the values (with lettered cards converted to numbers).
+        cards -> [2, 3, 10, 12, 14}. (Where 14 is an ace.)
+        Order matters here.
+
+        suits.m
+        Takes the cell array and returns a char. array of just
+        the suits. cards -> ['h', 'h', 's', 'd', 'c'].
+        Order matters here.
+
+    Win conditions
+
+        royal_flush.m
+        Checks the first win condition, if a player has a royal
+        flush. These are a string of T-J-Q-K-A of the same suit.
+        Since there's a clear winner in each case, and since this
+        is american poker where suits don't matter when
+        ranking hands, there's no need to worry about suits here.
+        
+        flush.m
+        All cards are peasant consequtive values of the same suit.
+        [2,3,4,5,6] ... [9,T,J,Q,K],
+        of clubs, hearts, spades, diamonds.
+        
+        four_of_a_kind.m
+        Four cards of same value. Eg. [3,3,3,3,2].
+        
+        full_house.m
+        Three of a kind and a pair. "kåk". Eg. [2,2,2,4,4].
+        
+        flush.m
+        All cards of the same suit. Eg. [Ah, 3h, 4h, kh, 2h].
+        
+        straight.m
+        Like a flush but without the suit criterion.
+        
+        three_of_a_kind.m
+        Three cards have the same value. Like a pair but stronger.
+        "Tre i rad."
+        
+        two_pairs.m
+        Two pairs. As simple as that. "Tvåpar". Eg. [A,A,2,2,4].
+        
+        one_pair.m
+        One pair. Eg. [2,2,3,4,5].
+        
+        high_card.m
+        When nothing else holds. Highest valued card in hand.
