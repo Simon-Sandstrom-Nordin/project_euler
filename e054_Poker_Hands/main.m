@@ -27,15 +27,50 @@ while index < 2*10^4
     p2_royal = royal_flush(player_2_hand);
     if p1_royal
         p1_win_counter = p1_win_counter + 1;
+        continue
     elseif p2_royal
         continue
     end
 
     % Straight flush
-    % In preparation, pick out the suits and values.
-    p1_suits = 0;
-    p1_values = 0;
-    p2_suits = 0;
-    p2_values = 0;
+    p1_straight = flush(player_1_hand)
+    p2_straight = flush(player_2_hand);
+    if p1_straight > p2_straight
+        p1_win_counter = p1_win_counter + 1;
+        continue
+    elseif p1_straight < p2_straight
+        continue
+    end
+
+    % Four of a Kind
+    p1_four_rank = four_of_a_kind(player_1_hand);
+    p2_four_rank = four_of_a_kind(player_2_hand);
+    if p1_four_rank > p2_four_rank
+        p1_win_counter = p1_win_counter + 1;
+        continue
+    elseif p1_four_rank < p2_four_rank
+        continue
+    end
+
+    % Full house
+    p1_full_house_rank = full_house(player_1_hand)
+    p2_full_house_rank = full_house(player_2_hand);
+    if p1_full_house_rank > p2_full_house_rank
+        p1_win_counter = p1_win_counter + 1;
+        continue
+    elseif p1_full_house_rank < p2_full_house_rank
+        continue
+    end
 
 end
+
+disp(p1_win_counter);
+
+% Note 6:th of September 2022
+%   Well, now the win counter doesn't increment at all.
+%   For some reason, either the functions don't return
+%   anything but zeros, or something like it.
+%   On the plus side: I've tripped on the fact that you can pause
+%   exeution on lines by clicking the line numbers on the left.
+%   It also says something about "save file to synchronize breakpoints".
+%   Interesting.

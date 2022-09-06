@@ -7,7 +7,7 @@ for k = 1:5
     %disp(value)
     
     % They're all characters. Even like '2'.
-    %class(value)
+    % class(value)
 
     if ismember(str2num(value), integer_list)
         value_array(end + 1) = str2num(value); 
