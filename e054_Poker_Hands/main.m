@@ -33,7 +33,7 @@ while index < 2*10^4
     end
 
     % Straight flush
-    p1_straight = flush(player_1_hand)
+    p1_straight = flush(player_1_hand);
     p2_straight = flush(player_2_hand);
     if p1_straight > p2_straight
         p1_win_counter = p1_win_counter + 1;
@@ -52,15 +52,23 @@ while index < 2*10^4
         continue
     end
 
-    % Full house
-    p1_full_house_rank = full_house(player_1_hand)
+    % Full house % on form [triplet_value, pair_value]
+    p1_full_house_rank = full_house(player_1_hand);
     p2_full_house_rank = full_house(player_2_hand);
-    if p1_full_house_rank > p2_full_house_rank
+    if p1_full_house_rank(1) > p2_full_house_rank(1)
         p1_win_counter = p1_win_counter + 1;
         continue
-    elseif p1_full_house_rank < p2_full_house_rank
+    elseif p1_full_house_rank(1) < p2_full_house_rank(1)
+        continue
+    elseif p1_full_house_rank(2) > p2_full_house_rank(2)
+        p1_win_counter = p1_win_counter + 1;
+        continue
+    elseif p1_full_house_rank(2) < p2_full_house_rank(2)
         continue
     end
+
+
+    disp(p1_win_counter);   % it never gets to this...
 
 end
 
@@ -74,3 +82,8 @@ disp(p1_win_counter);
 %   exeution on lines by clicking the line numbers on the left.
 %   It also says something about "save file to synchronize breakpoints".
 %   Interesting.
+
+% Note 7:th of September 2022
+%   It still doesn't increment the counter. Although I've found out that
+%   with the "pause at line" thing I can also go one step at a time through
+%   the code-lens and even enter functions and shit. And step out. Yep.
