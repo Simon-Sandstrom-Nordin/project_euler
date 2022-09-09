@@ -33,8 +33,8 @@ while index < 2*10^4
     end
 
     % Straight flush
-    p1_straight = flush(player_1_hand);
-    p2_straight = flush(player_2_hand);
+    p1_straight = straight_flush(player_1_hand);
+    p2_straight = straight_flush(player_2_hand);
     if p1_straight > p2_straight
         p1_win_counter = p1_win_counter + 1;
         continue
@@ -67,8 +67,23 @@ while index < 2*10^4
         continue
     end
 
+    % Flush: all cards of the same suit.
+    % Highest card is compared, then next, and so on.
 
-    disp(p1_win_counter);   % it never gets to this...
+    p1_flush = flush(player_1_hand);
+    p2_flush = flush(player_2_hand);
+
+    % This becomes slightly messier.
+    searching = true;
+    while searching
+        p1_high = p1_flush(end);
+        p2_high = p2_flush(end);
+
+        if p1_high > p2_high
+            p1_win_counter  % we'll leave it here. It's been fun though <3.
+        end
+        
+    end
 
 end
 
