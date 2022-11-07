@@ -22,146 +22,68 @@ public class UnikaOrd {
     }
 
     private static int index_finder(int length, String string) {
-        System.out.println(length);
-        System.out.println(string);
+        // System.out.println(length);
+        // System.out.println(string);
 
-        // I got a list
+        // I got a list that'll hold all sequences
         List<String> list = new ArrayList<String>();
-        List<String> list = new List<String>() {
-            @Override
-            public int size() {
-                return 0;
+        Set<String> set_of_duplicates = new HashSet<String>();  // wtf is a LinkedHashSet?
+
+        int index = 0;  // start at one, nvm from 0
+        Boolean searching = true;
+        while (searching) {
+            String substring = string.substring(index, index + length);
+
+            if (list.contains(substring)) {
+                set_of_duplicates.add(substring);
+            } else {
+                list.add(substring);
             }
 
-            @Override
-            public boolean isEmpty() {
-                return false;
+            index = index + 1;
+            if (index == string.length() - length) {
+                searching = false;  // actually correct I think, otherwise index+1 is out of bounds.
+            }
+        }
+
+        // convert list into list_but_set
+        Set<String> list_but_set = new HashSet<String>();
+        for (int k = 0; k < list.size(); k++) {
+            list_but_set.add(list.get(k));
+        }   // indexing in ArrayList starts at 0. Not like MATLAB's 1 for vectors.
+
+        // get difference. Actually, mutilate this set.
+        list_but_set.removeAll(set_of_duplicates);  // This mutilates, but that's ok.
+
+        // Now search and return index, then we're done! Hopefully.
+        index = 0;  // start at one
+        searching = true;
+        while (searching) {
+            String substring = string.substring(index, index + length);
+
+            if (list_but_set.contains(substring)) {
+                return index + 1;
             }
 
-            @Override
-            public boolean contains(Object o) {
-                return false;
+            index = index + 1;
+            if (index + length == string.length()) {
+                searching = false;  // actually correct I think, otherwise index+1 is out of bounds.
+                // I was in the wrong. I was wrong. I wrongly did this.
+                // Or maybe I was in the right, I increment later.
             }
-
-            @Override
-            public Iterator<String> iterator() {
-                return null;
-            }
-
-            @Override
-            public Object[] toArray() {
-                return new Object[0];
-            }
-
-            @Override
-            public <T> T[] toArray(T[] a) {
-                return null;
-            }
-
-            @Override
-            public boolean add(String s) {
-                return false;
-            }
-
-            @Override
-            public boolean remove(Object o) {
-                return false;
-            }
-
-            @Override
-            public boolean containsAll(Collection<?> c) {
-                return false;
-            }
-
-            @Override
-            public boolean addAll(Collection<? extends String> c) {
-                return false;
-            }
-
-            @Override
-            public boolean addAll(int index, Collection<? extends String> c) {
-                return false;
-            }
-
-            @Override
-            public boolean removeAll(Collection<?> c) {
-                return false;
-            }
-
-            @Override
-            public boolean retainAll(Collection<?> c) {
-                return false;
-            }
-
-            @Override
-            public void clear() {
-
-            }
-
-            @Override
-            public boolean equals(Object o) {
-                return false;
-            }
-
-            @Override
-            public int hashCode() {
-                return 0;
-            }
-
-            @Override
-            public String get(int index) {
-                return null;
-            }
-
-            @Override
-            public String set(int index, String element) {
-                return null;
-            }
-
-            @Override
-            public void add(int index, String element) {
-
-            }
-
-            @Override
-            public String remove(int index) {
-                return null;
-            }
-
-            @Override
-            public int indexOf(Object o) {
-                return 0;
-            }
-
-            @Override
-            public int lastIndexOf(Object o) {
-                return 0;
-            }
-
-            @Override
-            public ListIterator<String> listIterator() {
-                return null;
-            }
-
-            @Override
-            public ListIterator<String> listIterator(int index) {
-                return null;
-            }
-
-            @Override
-            public List<String> subList(int fromIndex, int toIndex) {
-                return null;
-            }
-
-            // This is the equivalent of drawing for fun, experiment and see
-            // what happens, right? Apparently there's an @Override in Java.
-            // Whatever that is. With built-in static methods and shit.
-            // Apparently java considers "shit" an offensive word :D.
-
-        };
+        }
 
         // If no such delföljd exists.
         return -1;
     }
 
 }
+
+// notes on java: String max length is 2147483647. Min is 0. Our limit is 10 million. Dats ok.
+
+// After trying in Kattis, first two test cases are correct but the third one
+// gets a Run-Time Error. It also worked for the 3 shits they gave me.
+// Conclusion: it works but to pass this task I need to make the
+// algorithm more efficient.
+
+// Aja... den fungerar bättre nu iallafall, men Kattis visar 404: Not Found
