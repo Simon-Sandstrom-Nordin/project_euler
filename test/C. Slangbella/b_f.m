@@ -1,14 +1,16 @@
-clc; clear; close all;
+function x_end = b_f(d)
+%B_F Summary of this function goes here
+%   Detailed explanation goes here
 
 % constants
-z_pos = .0001;     % d i uppgiften
+z_pos = d;     % d i uppgiften
 z_vel = 0;  % no initial velocity
 L0 = 10;    % cm
 B = 12;     % cm
 k = 950;    % N/m
 
 % step length is special
-step_length = .01;
+step_length = 0.00001;
 
 % Liknande funktionsfil för i B? Det är en väldigt lik uppgift...
 % Mycket kod går nog att modifiera för att passa här.
@@ -52,9 +54,9 @@ while err > tol && iter < maxiter
     %original_u(3) = step_length;
     
     %new_z = line(0)
-    new_z = z_vel_vec(end)
+    new_z = z_vel_vec(end);
     if iter ~= 1    % first iteration we only have one value for z
-        err = abs(new_z - old_z)
+        err = abs(new_z - old_z);
     end
     old_z = new_z;
     iter = iter + 1
@@ -85,7 +87,6 @@ u(5) = velocity;
 u(6) = step_length;
 u(7) = m;
 original_u = u;
-figure(1)
 tol = 1e-7; err = 1; maxiter = 7; iter = 1;
 while err > tol && iter < maxiter
     u = original_u;
@@ -116,13 +117,13 @@ while err > tol && iter < maxiter
     hold on
     original_u(6) = step_length;
     
-    new_x = line(0)
+    new_x = line(0);
     if iter ~= 1    % first iteration we only have one value for y
-        err = abs(new_x - old_x)
+        err = abs(new_x - old_x);
     end
     old_x = new_x;
     iter = iter + 1
 end
-
-% so the a task is done.
+x_end = new_x
+end
 
