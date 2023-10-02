@@ -12,6 +12,10 @@ public class MyButtonA extends JButton {
     String Text2 = "State 2";
     String CurrentText = Text1;
 
+    public void main(String[] args) {
+        this.setText(Text1);
+    }
+
     public void toggleState() {
         if (Objects.equals(this.CurrentColour, this.Colour1)) {
             this.CurrentColour = Colour2;

@@ -11,6 +11,9 @@ public class MyFrameA extends JFrame implements ActionListener {
     static MyButtonA button2 = new MyButtonA();
 
     public static void main(String []args) {
+        button1.addActionListener(new MyButtonA());
+        button2.addActionListener(new MyButtonA());
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
         Icon icon = new ImageIcon("nomi2.png");
