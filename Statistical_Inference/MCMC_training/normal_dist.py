@@ -47,4 +47,3 @@ for i in range(n):
     plt.hist(samples, stacked=True, density=True)
     plt.pause(.001)
 plt.show()
-
