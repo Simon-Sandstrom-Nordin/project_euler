@@ -82,22 +82,22 @@ plt.show()
 #plt.figure(2)
 p0 = stats.uniform.rvs(size=1)
 samples = [p0]
-n = 100000
+n = 1000
 for i in range(n):
     t_guess = stats.norm.rvs(loc=samples[-1], scale=.5, size=1)
 
     # Reject proposed samples if t is out of bounds
     while t_guess <= 0 or t_guess >= 1:
         t_guess = stats.norm.rvs(loc=samples[-1], scale=.5, size=1)
-    else:
-        R = likelihood(y_data, t_guess) / likelihood(y_data, samples[-1])
-        u = stats.uniform.rvs(size=1)
-        if u < min(R, 1):
-            samples.append(t_guess)
-        else:
-            samples.append(samples[-1])
 
-plt.title(f"Iteration: {i}")
+    R = likelihood(y_data, t_guess) / likelihood(y_data, samples[-1])
+    u = stats.uniform.rvs(size=1)
+    if u < min(R, 1):
+       samples.append(t_guess)
+    else:
+       samples.append(samples[-1])
+
+plt.title(f"Iteration: {n}")
 plt.hist(samples, stacked=True, density=True, alpha=0.5)
 plt.xlabel('t')
 plt.ylabel('Density')
