@@ -5,6 +5,8 @@
     <mapping directory="$PROJECT_DIR$/SomeLocalDir" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/gcc" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/latex2e" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/our-app/untitled" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/project_euler" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/simonsn-palinda-3" vcs="Git" />
   </component>
 </project>
