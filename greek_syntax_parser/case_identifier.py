@@ -124,3 +124,97 @@ def first_dec_mas_group_etc(stem):    # other examples were in this form.
     print("\n")
 first_dec_mas_group_etc("Aewvida")
 
+def second_dec_os(stem):
+    print(stem + " : second declination noun on -os")
+    print("Singular:")
+    print("N: " + stem + "os")
+    print("G: " + stem + "ou")
+    print("D: " + stem + "ω")
+    print("A: " + stem + "on")
+    print("V: " + stem + "e")
+    #
+    print("Plural:")
+    print("N: " + stem + "oi")
+    print("G: " + stem + "ωv")
+    print("D: " + stem + "ois")
+    print("A: " + stem + "ous")
+    print("V=N: " + stem + "oi")
+    print("\n")
+second_dec_os("log")
+
+def second_dec_ov(stem):
+    print(stem + " : second declination noun on -ov")
+    print("Singular:")
+    print("N: " + stem + "ov")
+    print("G: " + stem + "ou")
+    print("D: " + stem + "ω")
+    print("A: " + stem + "ov")
+    print("V=N: " + stem + "ov")
+    #
+    print("Plural:")
+    print("N: " + stem + "a")
+    print("G: " + stem + "ωv")
+    print("D: " + stem + "ois")
+    print("A: " + stem + "a")
+    print("V=N: " + stem + "a")
+    print("\n")
+second_dec_ov("erg")    # Ergon was work, which is like this fuckery hell
+second_dec_ov("snmei")  # Snmeion was sign, just for fun
+
+# Contracta nouns on -os and -ov contracted like -ous are above my paygrade, which is none anyway
+# but useful to know of their existance, like third declination nouns
+
+# Hetroklitiska former har annat böjningsmönster än ordets normala
+# Metaplasm är övergång till annan deklination än ursprungliga
+# Attiska andra deklinationen - aos blev -nos under hellenistisk tid till klassisk attiska och skit
+
+def third_dec_nouns_klausil_v_k_g_ch(stem):
+    print(stem + " : third declination noun on -v,-k,-g,-ch")
+    print("Singular:")
+    print("N: " + stem[0:len(stem)-1] + "ψ")
+    print("G: " + stem + "os")
+    print("D: " + stem + "i")
+    print("A: " + stem + "a")
+    print("V=N: " + stem[0:len(stem)-1] + "ψ")
+    #
+    print("Plural:")
+    print("N: " + stem[0:len(stem)-1] + "s")
+    print("G: " + stem + "ωv")
+    print("D: " + stem[0:len(stem)-1] + "ψi (n)")
+    print("A: " + stem + "as")
+    print("V=N: " + stem[0:len(stem)-1] + "s")
+    print("\n")
+third_dec_nouns_klausil_v_k_g_ch("phleb")   # åder
+# sark (kött) uses xsi instead of psi
+# salpigg (trumpet) uses xsi
+# thrich (hår) uses xsi instead of chi
+
+def third_dec_nouns_klausil_vt(stem):
+    print(stem + " : third declination noun on -vt")
+    print("Singular:")
+    print("N: " + stem[0:len(stem)-2] + "s")
+    print("G: " + stem + "os")
+    print("D: " + stem + "i")
+    print("A: " + stem + "a")
+    print("V: " + stem[0:len(stem)-2] + "v")
+    #
+    print("Plural:")
+    print("N: " + stem + "es")
+    print("G: " + stem + "wn")
+    print("D: " + stem[0:len(stem)-2] + "si(n)")
+    print("A: " + stem + "as")
+    print("V=N: " + stem + "es")
+    print("\n")
+third_dec_nouns_klausil_vt("gigavt")
+
+# Verloren jag ich, was vergangen ist,
+# Hinterfrag das Elend nicht
+# Sonst würd ich den Verstand verlier'n
+# Ich kann nicht erreichen, was nicht ist, doch wie tief der Schmerz auch sitzt
+# Ich muss nur vergessen, was passiert
+# - Rememberance, Selphius
+
+# https://www.youtube.com/watch?v=AgHJo1N3M8g&t=706s&ab_channel=gigi
+# Third declension adjectives have the same declensions for masculine/feminine forms,
+# And the definite article will tell which inherent gender a noun has. Adjectives morph
+# to have congruent genders as the nouns they are an attribute to.
