@@ -207,14 +207,16 @@ def third_dec_nouns_klausil_vt(stem):
     print("\n")
 third_dec_nouns_klausil_vt("gigavt")
 
-# Verloren jag ich, was vergangen ist,
-# Hinterfrag das Elend nicht
-# Sonst würd ich den Verstand verlier'n
-# Ich kann nicht erreichen, was nicht ist, doch wie tief der Schmerz auch sitzt
-# Ich muss nur vergessen, was passiert
-# - Rememberance, Selphius
-
-# https://www.youtube.com/watch?v=AgHJo1N3M8g&t=706s&ab_channel=gigi
 # Third declension adjectives have the same declensions for masculine/feminine forms,
 # And the definite article will tell which inherent gender a noun has. Adjectives morph
 # to have congruent genders as the nouns they are an attribute to.
+
+# Comparative is -os, -tatos, -tatas
+#
+
+def comparation(stem):
+    print("Positiv: " + stem[0:len(stem)-1] + "s")
+    print("Komparativ: " + stem + "teros")
+    print("Superlativ: " + stem + "tatos")
+
+comparation("melan") # "black" as in melancholy (black bile)
