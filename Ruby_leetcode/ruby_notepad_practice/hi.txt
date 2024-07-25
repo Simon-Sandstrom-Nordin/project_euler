@@ -1,0 +1,9 @@
+def hi2()
+	puts "hi2"
+end
+
+def hi()
+	puts "hi"
+end
+
+hi2()
